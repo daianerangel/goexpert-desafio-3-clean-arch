@@ -12,3 +12,6 @@ gen-wire:
 
 run-evans:
 	evans -r repl
+
+build-app:
+	cd cmd/ordersystem && go build -o app -v

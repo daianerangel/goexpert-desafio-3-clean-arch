@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/devfullcycle/20-CleanArch/internal/entity"
-	"github.com/devfullcycle/20-CleanArch/internal/usecase"
-	"github.com/devfullcycle/20-CleanArch/pkg/events"
+	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/entity"
+	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/usecase"
+	"github.com/daianerangel/goexpert-desafio-3-clean-arch/pkg/events"
 )
 
 type WebOrderHandler struct {
@@ -47,7 +47,6 @@ func (h *WebOrderHandler) Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
-
 
 func (h *WebOrderHandler) List(w http.ResponseWriter, r *http.Request) {
 	getOrder := usecase.NewGetOrderUseCase(h.OrderRepository)

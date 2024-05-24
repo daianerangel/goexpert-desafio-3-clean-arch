@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	"github.com/devfullcycle/20-CleanArch/internal/infra/grpc/pb"
-	"github.com/devfullcycle/20-CleanArch/internal/usecase"
+	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/infra/grpc/pb"
+	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/usecase"
 )
 
 type OrderService struct {
@@ -16,7 +16,7 @@ type OrderService struct {
 func NewOrderService(createOrderUseCase usecase.CreateOrderUseCase, getOrderUseCase usecase.GetOrderUseCase) *OrderService {
 	return &OrderService{
 		CreateOrderUseCase: createOrderUseCase,
-		GetOrderUseCase: getOrderUseCase,
+		GetOrderUseCase:    getOrderUseCase,
 	}
 }
 

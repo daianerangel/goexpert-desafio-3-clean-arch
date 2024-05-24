@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"github.com/devfullcycle/20-CleanArch/internal/entity"
+	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/entity"
 )
 
 type ListOrderOutputDTO struct {
