@@ -8,4 +8,5 @@ import "github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/usecase"
 
 type Resolver struct {
 	CreateOrderUseCase usecase.CreateOrderUseCase
+	GetOrderUseCase    usecase.GetOrderUseCase
 }
