@@ -9,6 +9,7 @@ import (
 	graphql_handler "github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/daianerangel/goexpert-desafio-3-clean-arch/configs"
+	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/entity"
 	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/event/handler"
 	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/infra/graph"
 	"github.com/daianerangel/goexpert-desafio-3-clean-arch/internal/infra/grpc/pb"
@@ -18,8 +19,9 @@ import (
 	"github.com/streadway/amqp"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 
-	// mysql
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -34,6 +36,15 @@ func main() {
 		panic(err)
 	}
 	defer db.Close()
+
+	dbGorm, errGorm := gorm.Open(mysql.New(mysql.Config{
+		Conn: db,
+	}), &gorm.Config{})
+
+	if errGorm != nil {
+		panic(errGorm)
+	}
+	dbGorm.AutoMigrate(&entity.Order{})
 
 	rabbitMQChannel := getRabbitMQChannel()
 

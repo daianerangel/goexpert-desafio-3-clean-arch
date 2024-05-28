@@ -6,8 +6,6 @@
 
 Execute `make docker-up`
 
-Create table with `1.sql` file 
-
 Execute `make run-app` 
 
 #### Test with web server
